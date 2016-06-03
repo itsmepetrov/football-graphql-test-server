@@ -1,0 +1,12 @@
+.DS_Store
+.idea/
+~swp
+*.log
+/*.iml
+*.bat
+*.orig
+/*.bat
+.vscode/*
+node_modules/
+config/
+!config/default.js
