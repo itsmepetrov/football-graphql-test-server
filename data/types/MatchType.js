@@ -1,15 +1,20 @@
 import {
   GraphQLObjectType,
-  GraphQLString
+  GraphQLString,
+  GraphQLList,
+  GraphQLID
 } from 'graphql';
 import TeamType from './TeamType';
+import ActionType from './ActionType';
 import CompetitionType from './CompetitionType';
+import { generateApiUrl } from '../../utils/api';
+import fetch from 'node-fetch';
 
 export default new GraphQLObjectType({
   name: 'Match',
   fields: {
     id: {
-      type: GraphQLString,
+      type: GraphQLID,
       resolve: (match) => match['@matchID']
     },
     date: {
@@ -24,6 +29,20 @@ export default new GraphQLObjectType({
     },
     awayTeam: {
       type: TeamType
+    },
+    actions: {
+      type: new GraphQLList(ActionType),
+      resolve: (match) => {
+        const matchId = match['@matchID'];
+        const url = generateApiUrl(
+          'football/match/actions',
+          matchId
+        );
+
+        return fetch(url)
+          .then(res => res.json())
+          .then(json => json.matchActions.actions.action)
+      }
     }
   }
 })

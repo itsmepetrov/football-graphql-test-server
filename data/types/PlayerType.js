@@ -1,23 +1,24 @@
 import {
   GraphQLObjectType,
   GraphQLString,
+  GraphQLList,
   GraphQLID
 } from 'graphql';
 
 export default new GraphQLObjectType({
-  name: 'Competition',
+  name: 'Player',
   fields: {
     id: {
       type: GraphQLID,
-      resolve: (match) => match['@competitionID']
-    },
-    seasonId: {
-      type: GraphQLString,
-      resolve: (match) => match['@seasonID']
+      resolve: (match) => match['@playerID']
     },
     name: {
       type: GraphQLString,
       resolve: (match) => match['#text']
+    },
+    teamId: {
+      type: GraphQLID,
+      resolve: (match) => match['@teamID']
     }
   }
-})
+});

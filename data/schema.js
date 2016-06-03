@@ -5,14 +5,18 @@ import {
   GraphQLList
 } from 'graphql';
 import {
-  matches
+  match,
+  matches,
+  actions
 } from './queries';
 
 export default new GraphQLSchema({
   query: new GraphQLObjectType({
     name: 'Query',
     fields: {
-      matches
+      match,
+      matches,
+      actions
     }
   })
 });
