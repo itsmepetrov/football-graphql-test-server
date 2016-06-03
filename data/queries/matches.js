@@ -7,8 +7,8 @@ import {
 } from 'graphql';
 import { MatchType } from '../types';
 import { isValidDate, toAPIDate } from '../../utils/date';
+import { generateApiUrl } from '../../utils/api';
 import fetch from 'node-fetch';
-import config from 'config';
 
 export default {
   name: 'Matches',
@@ -24,7 +24,10 @@ export default {
       throw new Error(`Invalid date format: ${date}, must be in DD/MM/YYYY`);
     }
 
-    const url = `${config.api.host}:${config.api.port}/${config.api.path}/football/competitions/matchDay/${config.api.token}/${toAPIDate(date)}/json`;
+    const url = generateApiUrl(
+      '/football/competitions/matchDay',
+      toAPIDate(date)
+    );
 
     return fetch(url)
       .then(res => res.json())
