@@ -11,10 +11,9 @@ export function generateApiUrl(pathBeforeToken, pathAfterToken, isJSON = true) {
 /**
  * If cache param enabled, store info into the redis
  * @param url
- * @param expire
  * @returns {Promise}
  */
-export function cachedFetch(url, {expire} = {}) {
+export function cachedFetch(url) {
   return new Promise((resolve, reject) => {
 
     // if cache disabled, just fetch data from url
