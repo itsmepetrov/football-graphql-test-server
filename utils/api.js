@@ -30,8 +30,14 @@ export function cachedFetch(url) {
       }
 
       // If data exists in the redis, then resolve it
-      if (result) {
-        return resolve(JSON.parse(result));
+      if (result && typeof result == 'string') {
+        // Try to parse json 
+        try {
+          return resolve(JSON.parse(result));
+        }
+        catch (error) {
+          console.log(error);
+        }
       }
 
       // Try to set data to redis and resolve it on success

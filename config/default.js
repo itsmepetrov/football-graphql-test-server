@@ -3,7 +3,7 @@ module.exports = {
     host: 'http://pads6.pa-sport.com',
     port: '80',
     path: 'api',
-    token: 'HpczY2gP4f'
+    token: 'PUT YOUR TOKEN HERE'
   },
   
   cache: {
