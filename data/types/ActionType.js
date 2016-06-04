@@ -1,7 +1,8 @@
 import {
   GraphQLObjectType,
   GraphQLString,
-  GraphQLList
+  GraphQLList,
+  GraphQLID
 } from 'graphql';
 
 import PlayerType from './PlayerType';
@@ -22,6 +23,10 @@ export default new GraphQLObjectType({
   fields: {
     eventType: {
       type: GraphQLString
+    },
+    teamId: {
+      type: GraphQLID,
+      resolve: (action) => action['@teamID']
     },
     matchTime: {
       type: GraphQLString

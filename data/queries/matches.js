@@ -31,7 +31,9 @@ export default {
       .then(res => res.json())
       .then(json => {
         const { match } = json.matches;
-        if (Array.isArray(match)) {
+        if (!match) {
+          return [];
+        } else if (Array.isArray(match)) {
           return match;
         } else {
           return [match];

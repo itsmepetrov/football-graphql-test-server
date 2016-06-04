@@ -1,5 +1,6 @@
 import {
   GraphQLObjectType,
+  GraphQLBoolean,
   GraphQLString,
   GraphQLList,
   GraphQLID
@@ -20,6 +21,14 @@ export default new GraphQLObjectType({
     date: {
       type: GraphQLString,
       resolve: (match) => match['@date']
+    },
+    koTime: {
+      type: GraphQLString,
+      resolve: (match) => match['@koTime']
+    },
+    result: {
+      type: GraphQLBoolean,
+      resolve: (match) => match.result === 'Yes'
     },
     competition: {
       type: CompetitionType
