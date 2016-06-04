@@ -5,7 +5,7 @@ import {
 } from 'graphql';
 import { ActionType } from '../types';
 import { isValidDate, toAPIDate } from '../../utils/date';
-import { generateApiUrl } from '../../utils/api';
+import { generateApiUrl, cachedFetch } from '../../utils/api';
 import fetch from 'node-fetch';
 
 export default {
@@ -23,8 +23,7 @@ export default {
       id
     );
 
-    return fetch(url)
-      .then(res => res.json())
+    return cachedFetch(url)
       .then(json => json.matchActions.actions.action)
   }
 }

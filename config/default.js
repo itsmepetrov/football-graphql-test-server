@@ -3,6 +3,11 @@ module.exports = {
     host: 'http://pads6.pa-sport.com',
     port: '80',
     path: 'api',
-    token: 'PUT YOUR TOKEN HERE'
+    token: 'HpczY2gP4f'
+  },
+  
+  cache: {
+    enable: true,
+    expire: 24 * 3600000
   }
 };

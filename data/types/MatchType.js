@@ -7,7 +7,7 @@ import {
 import TeamType from './TeamType';
 import ActionType from './ActionType';
 import CompetitionType from './CompetitionType';
-import { generateApiUrl } from '../../utils/api';
+import { generateApiUrl, cachedFetch } from '../../utils/api';
 import fetch from 'node-fetch';
 
 export default new GraphQLObjectType({
@@ -39,8 +39,7 @@ export default new GraphQLObjectType({
           matchId
         );
 
-        return fetch(url)
-          .then(res => res.json())
+        return cachedFetch(url)
           .then(json => json.matchActions.actions.action)
       }
     }
