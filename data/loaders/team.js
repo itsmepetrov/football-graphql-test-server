@@ -1,5 +1,5 @@
 import DataLoader from 'dataloader';
-import { generateApiUrl } from '../../utils/api';
+import { generateApiUrl, cachedFetch } from '../../utils/api';
 import fetch from 'node-fetch';
 
 export default new DataLoader((teamIds) => {
@@ -11,8 +11,7 @@ export default new DataLoader((teamIds) => {
 
     console.log(url);
 
-    return fetch(url)
-      .then(res => res.json())
+    return cachedFetch(url)
       .then(json => { console.log(json); return json })
       .then(json => ({
         '@teamID': teamId,

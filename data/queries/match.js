@@ -3,7 +3,7 @@ import {
   GraphQLID,
 } from 'graphql';
 import { MatchType } from '../types';
-import { generateApiUrl } from '../../utils/api';
+import { generateApiUrl, cachedFetch } from '../../utils/api';
 import fetch from 'node-fetch';
 
 export default {
@@ -21,8 +21,7 @@ export default {
       id
     );
 
-    return fetch(url)
-      .then(res => res.json())
+    return cachedFetch(url)
       .then(json => json.matches.match)
   }
 }

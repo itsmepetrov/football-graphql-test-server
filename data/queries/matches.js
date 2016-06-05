@@ -5,7 +5,7 @@ import {
 } from 'graphql';
 import { MatchType } from '../types';
 import { isValidDate, toAPIDate } from '../../utils/date';
-import { generateApiUrl } from '../../utils/api';
+import { generateApiUrl, cachedFetch } from '../../utils/api';
 import fetch from 'node-fetch';
 
 export default {
@@ -27,8 +27,7 @@ export default {
       toAPIDate(date)
     );
 
-    return fetch(url)
-      .then(res => res.json())
+    return cachedFetch(url)
       .then(json => {
         const { match } = json.matches;
         if (!match) {

@@ -4,5 +4,10 @@ module.exports = {
     port: '80',
     path: 'api',
     token: 'PUT YOUR TOKEN HERE'
+  },
+  
+  cache: {
+    enable: true,
+    expire: 24 * 3600000
   }
 };
