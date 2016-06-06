@@ -4,6 +4,7 @@
 
 ```sh
 $ npm install
+$ redis-server
 $ npm start
 ```
 
