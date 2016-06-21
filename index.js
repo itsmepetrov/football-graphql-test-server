@@ -7,8 +7,10 @@ const HOST = process.env.HOST || 'localhost';
 const PORT = process.env.PORT || '5000';
 const DEVELOPMENT = process.env.NODE_ENV === 'development';
 
+// Create express instance
 const app = express();
 
+// Mount express-graphql as middleware
 app.use('/graphql', graphqlHTTP({
   graphiql: DEVELOPMENT,
   pretty: true,

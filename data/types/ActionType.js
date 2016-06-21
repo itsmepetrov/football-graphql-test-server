@@ -18,6 +18,10 @@ import PlayerType from './PlayerType';
 //   }
 // }
 
+// Define the Action type with next fields: `eventType`, `teamId`, `matchTime`,
+// `eventTime`, `normalTime`, `addedTime`, `whereFrom`, `players` as List of PlayerType.
+// The type of Action is GraphQLObjectType, which has child fields
+// with their own types.
 export default new GraphQLObjectType({
   name: 'Action',
   fields: {
@@ -43,12 +47,10 @@ export default new GraphQLObjectType({
     whereFrom: {
       type: GraphQLString
     },
-    whereFrom: {
-      type: GraphQLString
-    },
     players: {
       type: new GraphQLList(PlayerType),
       resolve: (action) =>
+        // Convert players to array
         Object.keys(action.players)
           .map(key => action.players[key])
           .filter(player => player['@playerID'])
