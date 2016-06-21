@@ -1,13 +1,13 @@
 # Football GraphQL test server
 
-A demo wrapper around [http://pads6.pa-sport.com/](PADS API) built using GraphQL.
+A demo wrapper around [PADS API](http://pads6.pa-sport.com) built using GraphQL.
 
 Support next queries:
  - match: match info
  - matches: list of matches
  - actions: list of match actions
 
-Checkout [https://github.com/itsmepetrov/football-react-native-test-client](football-react-native-test-client) - React Native demo client for this server
+Checkout [football-react-native-test-client](https://github.com/itsmepetrov/football-react-native-test-client) - React Native demo client for this server
 
 ### Getting Started
 
