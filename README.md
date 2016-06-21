@@ -7,7 +7,7 @@ Support next queries:
  - matches: list of matches
  - actions: list of match actions
 
-Checkout [football-react-native-test-client](https://github.com/itsmepetrov/football-react-native-test-client) - React Native demo client for this server
+Check out [football-react-native-test-client](https://github.com/itsmepetrov/football-react-native-test-client) - React Native demo client for this server
 
 ### Getting Started
 
