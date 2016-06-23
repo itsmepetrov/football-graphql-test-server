@@ -1,5 +1,4 @@
 import express from 'express';
-import graphql from 'graphql';
 import graphqlHTTP from 'express-graphql';
 import schema from './data/schema';
 
